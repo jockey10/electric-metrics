@@ -1,4 +1,4 @@
-# mashup prometheus grafana demo
+# electric-metrics prometheus grafana demo
 
 ## Background
 
@@ -43,9 +43,22 @@ URL: http://prometheus:9090
 ```
 Select `Save & Test`
 
-Import a new dashboard, and use the value `6756` (Spring Boot 2 statistics). Select the Prometheus data source as `prometheus. Select `Import`.
+Import a new dashboard, and use the value `6756` (Spring Boot 2 statistics). Select the Prometheus data source as `prometheus`. Select `Import`.
 
-Import another dashboard, and use the value `1860` (node exporter full). Again, select the Prometheus data source as `prometheus`. Select `Import`.
+Deploy the node-exporter service to your local system:
+```
+ansible-playbook -i hosts deploy-node-exporter.yml --ask-become-pass
+```
+After the playbook has completed, verify that the node-exporter is up:
+```
+sudo systemctl status node_exporter
+
+node_exporter.service - Prometheus Node Exporter
+   Loaded: loaded (/etc/systemd/system/node_exporter.service; enabled; vendor preset: disabled)
+   Active: active (running) since Mon 2018-09-24 15:57:23 AEST; 6s ago
+```
+
+Import another dashboard into Grafana, and use the value `1860` (node exporter full). Again, select the Prometheus data source as `prometheus`. Select `Import`.
 
 ## References
 
