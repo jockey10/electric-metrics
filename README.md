@@ -17,6 +17,11 @@ This repo consists of files to enable the demo:
 
 Note this demo requires a working Minishift environment.
 
+Firstly, recursively clone this repo to collect all submodules:
+```
+git clone --recursive https://github.com/jockey10/electric-metrics.git
+```
+
 Create all applications:
 ```
 oc new-app grafana/grafana
