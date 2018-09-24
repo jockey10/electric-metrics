@@ -1,0 +1,7 @@
+---
+
+- name: Deploy node-exporter
+  hosts: localhost
+  become: yes
+  roles: 
+    - cloudalchemy.node-exporter
