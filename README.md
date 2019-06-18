@@ -30,7 +30,7 @@ oc expose svc/grafana
 oc new-app prom/prometheus
 oc expose svc/prometheus
 
-oc new-app redhat-openjdk18-openshift:1.3~https://github.com/jockey10/cat-metrics.git
+oc new-app java~https://github.com/shaneboulden/cat-metrics.git
 oc expose svc/cat-metrics 
 ```
 Create a config map for Prometheus, and patch the DeploymentConfig:
